@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-
 @section('head')
 <title>{{ $movie['title'] }}</title>
 @endsection
