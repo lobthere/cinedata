@@ -3,9 +3,7 @@
 <ul>
 @foreach ($movies as $movie)
     <li>
-        <p>
-            {{ $movie['title'] }}
-        </p>
+        <a href="/movies/{{ $movie['id'] }}">{{ $movie['title'] }}</a>
     </li>
 
 @endforeach
