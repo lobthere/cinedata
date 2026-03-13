@@ -12,5 +12,5 @@
     <p class="text">{{ $movie['content'] }}</p>
         <!-- Correspond au contenus de l article -->
     
-    <a href="/movies" class="text">Retour</a>
+    <a href="/movies" class="text" class="text">Retour</a>
 @endsection
