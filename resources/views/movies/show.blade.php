@@ -2,14 +2,21 @@
 
 @section('head')
 <title>{{ $movie['title'] }}</title>
+<link rel="stylesheet" href="{{ asset('css/show.css') }}">
 @endsection
 
 @section('content')
-    <h1 class="text">{{ $movie['title'] }}</h1>
-        <!-- Correspond au titre du film -->
-    
-    <p class="text">{{ $movie['content'] }}</p>
-        <!-- Correspond au contenus de l article -->
-    
-    <a href="/movies" class="text" class="text">Retour</a>
+    <h1 class="page-title">{{ $movie['title'] }}</h1>
+
+    <div class="card movie">
+        <div class="card movies-image-container">
+            <img src="https://via.placeholder.com/250x375" alt="Affiche du film">
+        </div>
+        <div class="card movies-info">
+            <h3>{{ $movie['title'] }}</h3>
+            <p>{{ $movie['content'] }}</p>
+        </div>
+    </div>
+
+    <a href="/movies" class="text">Retour</a>
 @endsection
