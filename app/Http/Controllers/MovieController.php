@@ -59,7 +59,7 @@ class MovieController extends Controller{
 
         Movies::create(['title' => $request->title,
                         'content' => $request->content,
-                        'img' => 'images/film/' . $imageName
+                        'img' => '/images/film/' . $imageName
                         ]);
         
         return redirect('/movies');
