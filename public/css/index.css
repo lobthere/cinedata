@@ -5,3 +5,35 @@ body {
 .text {
     color: #E2C391;
 }
+
+.card_movie {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	background-color: #fafafa;
+	border-radius: 20px;
+	border: 1px solid black;
+}
+.card_movie img {
+	height: 80px;
+}
+
+.card_movie .content {
+	margin-left: 30px;
+}
+.card_movie .content h1 {
+	font-size: 1.3em;
+}
+.card_movie .content p {
+	color: #575757;
+	font-size: 17px;
+	max-width: 350px;
+}
+.card_movie .content button {
+	background-color: inherit;
+	color: #268ce1;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-size: 17px;
+}

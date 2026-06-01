@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Movies;
 
 class MovieController extends Controller{
     private function getMovies(){
@@ -8,14 +9,14 @@ class MovieController extends Controller{
         contient notre liste de film et la retourne
     */
         return [
-            ['id' => 0, 'title' => 'Armagedon', 'content' => 'Un film utilisé par la nasa pour trouver des erreurs', 'img' => 'test'],
-            ['id' => 1, 'title' => '1917', 'content' => 'un film sur la premiere guerre mondial', 'img' => 'test'],
-            ['id' => 2, 'title' => 'moi moche et mechant', 'content' => 'des minions et gru', 'img' => 'test'],
-            ['id' => 3, 'title' => 'zootopie', 'content' => 'un zoo mais ils parlent', 'img' => 'test'],
-            ['id' => 4, 'title' => 'interstellar', 'content' => 'un film pour casser la tête', 'img' => 'test'],
-            ['id' => 5, 'title' => 'Mon voisin totoro', 'content' => 'film mignon ghibli', 'img' => 'test'],
-            ['id' => 6, 'title' => 'Jurrassic parc', 'content' => 'un film de dinosaures', 'img' => 'test']
-        ];
+            ['title' => 'Armagedon', 'content' => 'Un film utilisé par la nasa pour trouver des erreurs', 'img' => 'https://upload.wikimedia.org/wikipedia/en/f/fc/Armageddon-poster06.jpg'],
+            ['title' => '1917', 'content' => 'un film sur la premiere guerre mondial', 'img' => 'https://upload.wikimedia.org/wikipedia/en/f/fe/1917_%282019%29_Film_Poster.jpeg'],
+            ['title' => 'moi moche et mechant', 'content' => 'des minions et gru', 'img' => 'https://upload.wikimedia.org/wikipedia/fr/7/7a/Moi-moche-et-mechant.jpg'],
+            ['title' => 'zootopie', 'content' => 'un zoo mais ils parlent', 'img' => 'https://duckduckgo.com/i/07228fb46dac0f09.jpg'],
+            ['title' => 'interstellar', 'content' => 'un film pour casser la tête', 'img' => 'test'],
+            ['title' => 'Mon voisin totoro', 'content' => 'film mignon ghibli', 'img' => 'test'],
+            ['title' => 'Jurrassic parc', 'content' => 'un film de dinosaures', 'img' => 'test']
+        ];// \App\Models\Article::create(['name' =>'Premier article','content' =>'Contenu de mon premier article.', 'img' => ]);
     }
 
     public function index(){
@@ -24,7 +25,7 @@ class MovieController extends Controller{
         return view('movies.index', [
             //call the function getMovies() and load it s result in 'movies'
             //appelle la fonction getMovies() et charge le resultat dans la variable 'movies'
-            'movies' => $this->getMovies()
+            'movies' => Movies::all()
         ]);
     }
 
@@ -33,7 +34,7 @@ class MovieController extends Controller{
             prend en parametre un ID, renvoie vers la page associee a l ID avec pour la var 'movie' la valeur associee a cet id
             Take the ID and return the associated value in the corresponding page
             */
-        $movies = $this->getMovies();
+        $movies = \App\Models\Movies::where('id', '=', $enteredId)->get();
 
         //cherche dans la liste jusqu a ce qu il ai le meme ID
         //search in the list of movies until it find the good one
