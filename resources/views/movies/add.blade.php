@@ -2,6 +2,7 @@
 
 @section('head')
 <title>Adder</title>
+<link rel="stylesheet" href="{{ asset('css/add.css') }}">
 @endsection
 
 @section('content')
