@@ -8,4 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/movies/add', [MovieController::class, 'adderShow']);
 Route::get('/movies/{id}', [MovieController::class, 'show']);

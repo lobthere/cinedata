@@ -31,5 +31,9 @@ class MovieController extends Controller{
             }
         };
     }
+
+    public function adderShow(){
+        return view('movies.add');
+    }
 }
 ?>
