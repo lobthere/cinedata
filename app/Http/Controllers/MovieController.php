@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movies;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class MovieController extends Controller{
     public function index(){
@@ -30,6 +32,37 @@ class MovieController extends Controller{
                 return view('movies.show', ['movie' => $data]);
             }
         };
+    }
+
+    public function create(){
+        return view('movies.add');
+    }
+
+    public function store(Request $request){
+
+        $request -> validate([
+            'title' => 'required|unique:Movies',
+            'content' => 'required|unique:Movies',
+            'img' => 'required|file|mimes:jpg,jpeg,png,webp'
+        ]);
+
+        // Create image name from title
+        $extension = $request->file('img')->getClientOriginalExtension();
+
+        $imageName = Str::slug($request->title) . '.' . $extension;
+        
+        // Upload to public/images/film/
+        $request->file('img')->move(
+            public_path('images/film'),
+            $imageName
+        );
+
+        Movies::create(['title' => $request->title,
+                        'content' => $request->content,
+                        'img' => '/images/film/' . $imageName
+                        ]);
+        
+        return redirect('/movies');
     }
 }
 ?>
