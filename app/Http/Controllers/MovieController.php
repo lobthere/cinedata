@@ -8,13 +8,13 @@ class MovieController extends Controller{
         contient notre liste de film et la retourne
     */
         return [
-            ['id' => 0, 'title' => 'Armagedon', 'content' => 'Un film utilisé par la nasa pour trouver des erreurs'],
-            ['id' => 1, 'title' => '1917', 'content' => 'un film sur la premiere guerre mondial'],
-            ['id' => 2, 'title' => 'moi moche et mechant', 'content' => 'des minions et gru'],
-            ['id' => 3, 'title' => 'zootopie', 'content' => 'un zoo mais ils parlent'],
-            ['id' => 4, 'title' => 'interstellar', 'content' => 'un film pour casser la tête'],
-            ['id' => 5, 'title' => 'Mon voisin totoro', 'content' => 'film mignon ghibli'],
-            ['id' => 6, 'title' => 'Jurrassic parc', 'content' => 'un film de dinosaures']
+            ['id' => 0, 'title' => 'Armagedon', 'content' => 'Un film utilisé par la nasa pour trouver des erreurs', 'img' => 'test'],
+            ['id' => 1, 'title' => '1917', 'content' => 'un film sur la premiere guerre mondial', 'img' => 'test'],
+            ['id' => 2, 'title' => 'moi moche et mechant', 'content' => 'des minions et gru', 'img' => 'test'],
+            ['id' => 3, 'title' => 'zootopie', 'content' => 'un zoo mais ils parlent', 'img' => 'test'],
+            ['id' => 4, 'title' => 'interstellar', 'content' => 'un film pour casser la tête', 'img' => 'test'],
+            ['id' => 5, 'title' => 'Mon voisin totoro', 'content' => 'film mignon ghibli', 'img' => 'test'],
+            ['id' => 6, 'title' => 'Jurrassic parc', 'content' => 'un film de dinosaures', 'img' => 'test']
         ];
     }
 
