@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movies extends Model
 {
-    protected $fillable = ['name', 'content', 'img'];
+    protected $fillable = ['title', 'content', 'img'];
 }
