@@ -10,7 +10,7 @@
 
     <div class="card movie">
         <div class="card movies-image-container">
-            <img src="https://via.placeholder.com/250x375" alt="Affiche du film">
+            <img src="{{ $movie['img'] }}" alt="Affiche du film">
         </div>
         <div class="card movies-info">
             <h3>{{ $movie['title'] }}</h3>
