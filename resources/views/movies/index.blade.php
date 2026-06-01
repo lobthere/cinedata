@@ -6,13 +6,18 @@
 
 @section('content')
     <h1 class="text">Liste des films</h1>
+    <ul>
     @foreach ($movies as $movie)
 <!-- une boucle foreach -->
-
-            <div class="card_movie">
-                <img src="{{ $movie['img'] }}" alt="{{ $movie['name'] }}'s poster">
-                <a href="/movies/{{ $movie['id'] }}" class="text">{{ $movie['name'] }}</a>
-            </div>
-
+        <li>
+            <a href="/movies/{{ $movie['id'] }}" class="text">
+                <div class="card_movie">
+                    <img src="{{ $movie['img'] }}" alt="{{ $movie['title'] }}'s poster" class="movie-poster">
+                    <br>
+                    <p>{{ $movie['title'] }}</p>
+                </div>
+            </a>
+        </li>
     @endforeach
+    </ul>
 @endsection

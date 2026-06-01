@@ -7,15 +7,20 @@ body {
 }
 
 .card_movie {
-	display: flex;
 	align-items: center;
 	padding: 20px;
-	background-color: #fafafa;
+	background-color: #15406a;
 	border-radius: 20px;
 	border: 1px solid black;
+    max-width: 200;
 }
-.card_movie img {
-	height: 80px;
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .card_movie .content {
@@ -27,7 +32,7 @@ body {
 .card_movie .content p {
 	color: #575757;
 	font-size: 17px;
-	max-width: 350px;
+	max-width: 200px;
 }
 .card_movie .content button {
 	background-color: inherit;
@@ -36,4 +41,17 @@ body {
 	padding: 0;
 	cursor: pointer;
 	font-size: 17px;
+}
+
+.card_movie:hover{
+    transform: scale(1.1);
+}
+
+.movie-poster {
+    height: 200px;
+    width: 140px;
+}
+
+a {
+    text-decoration: none;
 }
