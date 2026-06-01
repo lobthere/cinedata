@@ -5,3 +5,53 @@ body {
 .text {
     color: #E2C391;
 }
+
+.card_movie {
+	align-items: center;
+	padding: 20px;
+	background-color: #15406a;
+	border-radius: 20px;
+	border: 1px solid black;
+    max-width: 200;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card_movie .content {
+	margin-left: 30px;
+}
+.card_movie .content h1 {
+	font-size: 1.3em;
+}
+.card_movie .content p {
+	color: #575757;
+	font-size: 17px;
+	max-width: 200px;
+}
+.card_movie .content button {
+	background-color: inherit;
+	color: #268ce1;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	font-size: 17px;
+}
+
+.card_movie:hover{
+    transform: scale(1.1);
+}
+
+.movie-poster {
+    height: 200px;
+    width: 140px;
+}
+
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,13 @@
+\App\Models\Movies::create(
+    ['title' => 'Armagedon',
+     'content' => 'Un film utilisé par la nasa pour trouver des erreurs',
+      'img' => 'https://upload.wikimedia.org/wikipedia/en/f/fc/Armageddon-poster06.jpg'
+    ]);
+\App\Models\Movies::create(['title' => '1917', 'content' => 'un film sur la premiere guerre mondial', 'img' => 'https://upload.wikimedia.org/wikipedia/en/f/fe/1917_%282019%29_Film_Poster.jpeg']);
+\App\Models\Movies::create(['title' => 'moi moche et mechant', 'content' => 'des minions et gru', 'img' => 'https://upload.wikimedia.org/wikipedia/fr/7/7a/Moi-moche-et-mechant.jpg']);
+\App\Models\Movies::create(['title' => 'zootopie', 'content' => 'un zoo mais ils parlent', 'img' => 'https://duckduckgo.com/i/07228fb46dac0f09.jpg']);
+\App\Models\Movies::create(['title' => 'interstellar', 'content' => 'un film pour casser la tête', 'img' => 'https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg']);
+\App\Models\Movies::create(['title' => 'Mon voisin totoro', 'content' => 'film mignon ghibli', 'img' => 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FjtJt6t3RaxYqif79aB2QKSg6acv.jpg']);
+\App\Models\Movies::create(['title' => 'Jurrassic parc', 'content' => 'un film de dinosaures', 'img' => 'https://upload.wikimedia.org/wikipedia/en/e/e7/Jurassic_Park_poster.jpg']);
+\App\Models\Movies::create(['title' => 'Michael Jackson', 'content' => 'Un film sur la vie de Michael Jackson', 'img' => 'https://upload.wikimedia.org/wikipedia/en/3/37/Michael_%282026_film_poster%29.png']);
+\App\Models\Movies::create(['title' => 'La Communauté de l anneau', 'content' => 'Le seigneur des anneaux premier film', 'img' => 'https://upload.wikimedia.org/wikipedia/en/f/fb/Lord_Rings_Fellowship_Ring.jpg']);
