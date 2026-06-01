@@ -6,7 +6,7 @@
 
 @section('content')
     <h1 class="text">Ajoute tes propres films</h1>
-    <form action="{{ url('store') }}" method="post">
+    <form action="{{ url('store') }}" method="post" enctype="multipart/form-data" >
         
         @csrf
 
@@ -16,8 +16,7 @@
         <label for="content">Description</label>
         <input type="text" name="content" id="content" value="{{ old('content') }}">
 
-        <label for="img">Image</label>
-        <input type="file">
+        <input name="img" id="img" type="file">
 
         <input type="submit" name="submit" id="submit" value="Envoyer">
 
