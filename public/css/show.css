@@ -52,3 +52,14 @@ font-weight: 500;
 .nav-links a:hover {
 color: #e2b659;
 }
+.nav-logo, .nav-links a {
+    color: #E2C391 !important;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover, .nav-links a:hover {
+    color: #ffffff !important;
+}
