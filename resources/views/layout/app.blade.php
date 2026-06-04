@@ -14,11 +14,8 @@
 <a href="/movies" class="nav-logo">Cinédata</a>
 <ul class="nav-links">
      <li><a href="/movies">Films</a></li>
-     <li><a href="#">Cinéma</a></li>
-     <li><a href="#">Ajout</a></li>
-     <li><a href="#">Présentation</a></li>
-     <li><a href="#">À propos</a></li>
-     <li><a href="#">Connexion</a></li>
+     <li><a href="/movies/add">Ajout</a></li>
+     @yield('navbar')
 </ul>
 </nav>
 </header>

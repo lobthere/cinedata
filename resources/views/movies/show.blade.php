@@ -5,6 +5,10 @@
     <link rel="stylesheet" href="{{ asset('css/show.css') }}">
 @endsection
 
+@section('navbar')
+    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
+@endsection
+
 @section('content')
     <h1 class="page-title">{{ $movie['title'] }}</h1>
 
@@ -19,15 +23,15 @@
             <h3>{{ $movie['title'] }}</h3>
             <p>{{ $movie['content'] }}</p>
         </div>
-    </div>
-    <a href="/movies" class="button-special">Retour</a>
-    
-    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
+   <div class="container-actions">
+        <a href="/movies" class="button-special">Retour</a>
 
-    <form method="POST" action="/movies/{{  $movie->id  }}">
-        @csrf
-        @method('DELETE')
-        <button type="submit">Supprimer</button>
+        <form method="POST" action="/movies/{{ $movie->id }}" class="form-supprimer">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn-supprimer">Supprimer</button>
+        </form>
+    </div>
     </form>
     
     <div class="createComments">
