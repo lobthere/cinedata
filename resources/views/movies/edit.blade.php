@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <form action="{{ url('update') }}" method="post" enctype="multipart/form-data" >
+    <form action="/movies/{{  $movie->id  }}" method="post" enctype="multipart/form-data" >
         
         @csrf
         @method('PUT')

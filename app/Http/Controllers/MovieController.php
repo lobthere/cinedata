@@ -71,9 +71,11 @@ class MovieController extends Controller{
 }
 
     public function update(Request $request, $id){
-        
         //find movie
-        $movie = Movies::findOrFail($id_movie);
+        $movie = Movies::findOrFail($id);
+
+        error_log(print_r($id, true));
+        error_log(print_r($movie, true));
 
         //check for needed data
         $request -> validate([
@@ -114,6 +116,9 @@ class MovieController extends Controller{
             //if movie changed
             if($movie['title'] != $request['title']){
 
+                error_log(print_r("title changed", true));
+
+
                 $imageName = $request['title'] . '.' . file($movie['img'])->getClientOriginalExtension();
                 
                 //edit file name
@@ -124,23 +129,18 @@ class MovieController extends Controller{
                     'content' => $request->content,
                     'img' => 'images/film/' . $imageName
                 ]);
-                
+
                 //return to the edited page
                 return redirect('/movies/' . $movie['id']);
             }
 
-            else{
-                Movies::update(['title' => $request->title,
+            Movies::update(['title' => $request->title,
                     'content' => $request->content
                 ]);
-
-                //return to the edited page
-                return redirect('/movies/' . $movie['id']);
-            }
+        
+            //return to the edited page
+            return redirect('/movies/' . $movie['id']);
         }
-
-
-
     }
 }
 ?>
