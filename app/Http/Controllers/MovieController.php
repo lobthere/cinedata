@@ -23,7 +23,7 @@ class MovieController extends Controller{
             */
         $movies = \App\Models\Movies::where('id', '=', $enteredId)->get();
 
-        $com = \App\Models\Comments::where('foreignId', '=', $enteredId)->get();
+        $com = \App\Models\Comments::where('moviesId', '=', $enteredId)->get();
 
         //cherche dans la liste jusqu a ce qu il ai le meme ID
         //search in the list of movies until it find the good one
