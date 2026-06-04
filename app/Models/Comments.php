@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comments extends Model
 {
-    protected $fillable = ['foreignId', 'username', 'comment'];
+    protected $fillable = ['moviesId', 'username', 'comment'];
 }

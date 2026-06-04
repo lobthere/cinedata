@@ -32,7 +32,8 @@ class MovieController extends Controller{
             //if found -> return the page with the informations in the id
             if ($data['id'] == $enteredId){
                 }
-                return view('movies.show', ['movie' => $data], ['comments' => $com]);
+                return view('movies.show', ['movie' => $data,
+                                         'comments' => $com]);
         };
     }
 
