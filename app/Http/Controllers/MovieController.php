@@ -29,8 +29,8 @@ class MovieController extends Controller{
             //quand la meme ID, retourne la page web des informations correspondant a cet ID
             //if found -> return the page with the informations in the id
             if ($data['id'] == $enteredId){
+                }
                 return view('movies.show', ['movie' => $data]);
-            }
         };
     }
 
@@ -63,6 +63,24 @@ class MovieController extends Controller{
                         ]);
         
         return redirect('/movies');
+    }
+
+    public function edit($id_movie){
+        $movies = \App\Models\Movies::where('id', '=', $id_movie)->get();
+
+        //cherche dans la liste jusqu a ce qu il ai le meme ID
+        //search in the list of movies until it find the good one
+        foreach($movies as $data){
+            //quand la meme ID, retourne la page web des informations correspondant a cet ID
+            //if found -> return the page with the informations in the id
+            if ($data['id'] == $id_movie){
+                }
+                return view('movies.edit', ['movie' => $data]);
+        };
+    }
+
+    public function update(Request $request, $id){
+        
     }
 }
 ?>
