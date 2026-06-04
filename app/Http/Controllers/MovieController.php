@@ -59,7 +59,7 @@ class MovieController extends Controller{
 
         Movies::create(['title' => $request->title,
                         'content' => $request->content,
-                        'img' => 'images/film/' . $imageName
+                        'img' => '/images/film/' . $imageName
                         ]);
         
         return redirect('/movies');
@@ -100,7 +100,7 @@ class MovieController extends Controller{
             //update all the new parameters
             $movie->update(['title' => $request->title,
                         'content' => $request->content,
-                        'img' => 'images/film/' . $imageName
+                        'img' => '/images/film/' . $imageName
                         ]);
             
             //return to the edited page
@@ -121,7 +121,7 @@ class MovieController extends Controller{
                 //update accordingly
                 $movie->update(['title' => $request->title,
                     'content' => $request->content,
-                    'img' => 'images/film/' . $imageName
+                    'img' => '/images/film/' . $imageName
                 ]);
 
                 //return to the edited page
