@@ -1,8 +1,8 @@
 @extends('layout.app')
 
 @section('head')
-<title>Movies</title>
-<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <title>Movies</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
 @section('content')
