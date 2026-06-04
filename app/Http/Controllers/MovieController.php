@@ -23,6 +23,8 @@ class MovieController extends Controller{
             */
         $movies = \App\Models\Movies::where('id', '=', $enteredId)->get();
 
+        $com = \App\Models\Comments::where('moviesId', '=', $enteredId)->get();
+
         //cherche dans la liste jusqu a ce qu il ai le meme ID
         //search in the list of movies until it find the good one
         foreach($movies as $data){
@@ -30,7 +32,8 @@ class MovieController extends Controller{
             //if found -> return the page with the informations in the id
             if ($data['id'] == $enteredId){
                 }
-                return view('movies.show', ['movie' => $data]);
+                return view('movies.show', ['movie' => $data,
+                                         'comments' => $com]);
         };
     }
 

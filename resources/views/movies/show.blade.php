@@ -23,14 +23,42 @@
             <h3>{{ $movie['title'] }}</h3>
             <p>{{ $movie['content'] }}</p>
         </div>
-   <div class="container-actions">
-        <a href="/movies" class="button-special">Retour</a>
+        <div class="container-actions">
+            <a href="/movies" class="button-special">Retour</a>
 
-        <form method="POST" action="/movies/{{ $movie->id }}" class="form-supprimer">
+            <form method="POST" action="/movies/{{ $movie->id }}" class="form-supprimer">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn-supprimer">Supprimer</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="createComments">
+        <form action="/movies/{{  $movie->id  }}/comment" method="post">
+            
             @csrf
-            @method('DELETE')
-            <button type="submit" class="btn-supprimer">Supprimer</button>
+
+            <label for="title">Username</label>
+            <input type="text" id="title" name="username" value="{{ old('username') }}">
+
+            <label for="content">Commentaire</label>
+            <input type="text" name="comment" value="{{ old('comment') }}">
+
+            <input type="submit" name="submit" id="submit" value="Envoyer">
+
         </form>
     </div>
-    </form>
+
+    <div class="comments">
+        <ul>
+        @foreach ($comments as $comment)
+        <!-- une boucle foreach -->
+            <li>
+                <h5>{{ $comment['username'] }}</h5>
+                <p>{{ $comment['comment'] }}</p>
+            </li>
+        @endforeach
+        </ul>
+    </div>
 @endsection
