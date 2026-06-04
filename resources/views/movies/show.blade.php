@@ -22,5 +22,11 @@
     </div>
     <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
 
-    <a href="/movies" class="button-special">Retour</a
+    <a href="/movies" class="button-special">Retour</a>
+
+    <form method="POST" action="/movies/{{  $movie->id  }}">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Supprimer</button>
+    </form>
 @endsection
