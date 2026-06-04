@@ -20,8 +20,7 @@
             <p>{{ $movie['content'] }}</p>
         </div>
     </div>
+    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
 
-    <a href="/movies" class="button special">Retour</a>
-    <span class="fleche">&larr;</span> 
-</a>
+    <a href="/movies" class="button-special">Retour</a
 @endsection

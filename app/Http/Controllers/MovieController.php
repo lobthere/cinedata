@@ -29,8 +29,8 @@ class MovieController extends Controller{
             //quand la meme ID, retourne la page web des informations correspondant a cet ID
             //if found -> return the page with the informations in the id
             if ($data['id'] == $enteredId){
+                }
                 return view('movies.show', ['movie' => $data]);
-            }
         };
     }
 
@@ -63,6 +63,78 @@ class MovieController extends Controller{
                         ]);
         
         return redirect('/movies');
+    }
+
+    public function edit($id_movie){
+        $movie = Movies::findOrFail($id_movie);
+        return view('movies.edit', ['movie' => $movie]);
+}
+
+    public function update(Request $request, $id){
+        //find movie
+        $movie = Movies::findOrFail($id);
+
+        //check for needed data
+        $request -> validate([
+            'img' => 'file|mimes:jpg,jpeg,png,webp'
+        ]);
+
+        //concat to make the new image name
+        
+        //check if image has been inserted
+        if(!empty($request->img)){
+            
+            //if inserted, delete old image
+            unlink(public_path($movie['img']));
+            
+            $extension = $request->file('img')->getClientOriginalExtension();
+
+            $imageName = Str::slug($request->title) . $extension;
+            
+            // Upload to public/images/film/
+            $request->file('img')->move(
+                public_path('images/film'),
+                $imageName
+            );
+
+            //update all the new parameters
+            $movie->update(['title' => $request->title,
+                        'content' => $request->content,
+                        'img' => '/images/film/' . $imageName
+                        ]);
+            
+            //return to the edited page
+            return redirect('/movies/' . $movie['id']);
+        }
+        else{
+
+            //if movie changed
+            if($movie['title'] != $request['title']){
+
+                $extension = explode(".",$movie->img)[1];
+
+                $imageName = $request['title'] . '.' . $extension;
+                
+                //edit file name
+                rename(public_path($movie['img']), public_path("/images/film/" . $imageName));
+                
+                //update accordingly
+                $movie->update(['title' => $request->title,
+                    'content' => $request->content,
+                    'img' => '/images/film/' . $imageName
+                ]);
+
+                //return to the edited page
+                return redirect('/movies/' . $movie['id']);
+            }
+
+            movie->update(['title' => $request->title,
+                    'content' => $request->content
+                ]);
+        
+            //return to the edited page
+            return redirect('/movies/' . $movie['id']);
+        }
     }
 }
 ?>
