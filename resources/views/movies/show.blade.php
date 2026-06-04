@@ -14,16 +14,14 @@
         </div>
         
         <div class="card movies-info">
-           <div class="movie-metadata">
-              <span class="badge year">{{ $movie['year'] ?? 'N/A' }}</span>
-              <span class="badge duration">{{ $movie['duration'] ?? 'N/A' }}</span>
-             <span class="badge genre">{{ $movie['genre'] ?? 'N/A' }}</span>
-</div>
+           <div class="movie-metadata"></div>
 
             <h3>{{ $movie['title'] }}</h3>
             <p>{{ $movie['content'] }}</p>
         </div>
     </div>
 
-    <a href="/movies" class="text">Retour</a>
+    <a href="/movies" class="button special">Retour</a>
+    <span class="fleche">&larr;</span> 
+</a>
 @endsection

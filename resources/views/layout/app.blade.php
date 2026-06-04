@@ -14,8 +14,8 @@
 <ul class="nav-links">
      <li><a href="/movies">Films</a></li>
      <li><a href="#">Cinéma</a></li>
-     <li><a href="#">Acteurs</a></li>
-     <li><a href="#">Prochaines sorties</a></li>
+     <li><a href="#">Ajout</a></li>
+     <li><a href="#">Présentation</a></li>
      <li><a href="#">À propos</a></li>
      <li><a href="#">Connexion</a></li>
 </ul>

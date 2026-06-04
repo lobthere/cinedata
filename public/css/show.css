@@ -76,3 +76,30 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
+.button.special {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #242F40;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid #E2C391;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.button.special:hover {
+  background-color: transparent;
+  color: #E2C391;
+}
+
+.button.special:hover .fleche {
+  transform: translateX(-3px);
+  transition: transform 0.2s ease;
+}
