@@ -29,4 +29,28 @@
         @method('DELETE')
         <button type="submit">Supprimer</button>
     </form>
+    
+    <div class="createComments">
+        <form action=""></form>
+    </div>
+
+    <div class="comments">
+        <ul>
+        @foreach ($comments as $comment)
+        <!-- une boucle foreach -->
+            @if ($comment->foreignId == $movie->id)
+                <li>
+                    <h5>{{ $comment['username'] }}</h5>
+                    <p>{{ $comment['comment'] }}</p>
+                        <div class="card_movie">
+                            <img src="{{ $movie['img'] }}" alt="{{ $movie['title'] }}'s poster" class="movie-poster">
+                            <br>
+                            <p>{{ $movie['title'] }}</p>
+                        </div>
+                    </a>
+                </li>
+            @endif
+        @endforeach
+        </ul>
+    </div>
 @endsection
