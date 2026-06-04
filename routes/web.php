@@ -11,5 +11,6 @@ Route::get('/', function () {
 Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/movies/add', [MovieController::class, 'create']);
 Route::post('/store', [MovieController::class, 'store']);
+Route::put('/update', [MovieController::class, 'update']);
 Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::get('/movies/{id}/edit', [MovieController::class, 'edit']);
