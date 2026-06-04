@@ -22,4 +22,9 @@
         <input type="submit" name="submit" id="submit" value="Envoyer">
 
     </form>
+    <div class="container-retour">
+    <a href="/movies" class="btn-retour">
+        ← Retour
+    </a>
+</div>
 @endsection
