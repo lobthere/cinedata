@@ -74,27 +74,22 @@ class MovieController extends Controller{
         //find movie
         $movie = Movies::findOrFail($id);
 
-        error_log(print_r($id, true));
-        error_log(print_r($movie, true));
-
         //check for needed data
         $request -> validate([
-            'title' => 'required|unique:Movies',
-            'content' => 'required|unique:Movies',
             'img' => 'file|mimes:jpg,jpeg,png,webp'
         ]);
 
+        //concat to make the new image name
+        
         //check if image has been inserted
-        if(img != $request['img']){
+        if(!empty($request->img)){
             
             //if inserted, delete old image
-            unlink($movie['img']);
-
-            // Create image name from title
+            unlink(public_path($movie['img']));
+            
             $extension = $request->file('img')->getClientOriginalExtension();
 
-            //concat to make the new image name
-            $imageName = Str::slug($request->title) . '.' . $extension;
+            $imageName = Str::slug($request->title) . $extension;
             
             // Upload to public/images/film/
             $request->file('img')->move(
@@ -103,7 +98,7 @@ class MovieController extends Controller{
             );
 
             //update all the new parameters
-            Movies::update(['title' => $request->title,
+            movie->update(['title' => $request->title,
                         'content' => $request->content,
                         'img' => '/images/film/' . $imageName
                         ]);
@@ -116,16 +111,15 @@ class MovieController extends Controller{
             //if movie changed
             if($movie['title'] != $request['title']){
 
-                error_log(print_r("title changed", true));
+                $extension = explode(".",$movie->img)[1];
 
-
-                $imageName = $request['title'] . '.' . file($movie['img'])->getClientOriginalExtension();
+                $imageName = $request['title'] . '.' . $extension;
                 
                 //edit file name
-                rename($movie['img'], $imageName);
+                rename(public_path($movie['img']), public_path("/images/film/" . $imageName));
                 
                 //update accordingly
-                Movies::update(['title' => $request->title,
+                movie->update(['title' => $request->title,
                     'content' => $request->content,
                     'img' => 'images/film/' . $imageName
                 ]);
@@ -134,7 +128,7 @@ class MovieController extends Controller{
                 return redirect('/movies/' . $movie['id']);
             }
 
-            Movies::update(['title' => $request->title,
+            movie->update(['title' => $request->title,
                     'content' => $request->content
                 ]);
         
