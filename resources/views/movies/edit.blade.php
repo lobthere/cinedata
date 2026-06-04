@@ -2,14 +2,6 @@
 
 @section('head')
 <title>{{ $movie['title'] }}</title>
-<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
-@endsection
-
-@section('content')
-    @extends('layout.app')
-
-@section('head')
-<title>{{ $movie['title'] }}</title>
 <link rel="stylesheet" href="{{ asset('css/show.css') }}">
 @endsection
 
@@ -20,10 +12,10 @@
         @method('PUT')
 
         <label for="title">Titre</label>
-        <input type="text" id="title" name="title" value="{{ old('title'), $movie->title }}">
+        <input type="text" id="title" name="title" value="{{ $movie->title }}">
 
         <label for="content">Description</label>
-        <input type="text" name="content" id="content" value="{{ old('content'), $movie->content }}">
+        <input type="text" name="content" id="content" value="{{ $movie->content }}">
 
         <p>image</p>
         <input name="img" id="img" type="file">

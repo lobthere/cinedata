@@ -59,28 +59,88 @@ class MovieController extends Controller{
 
         Movies::create(['title' => $request->title,
                         'content' => $request->content,
-                        'img' => '/images/film/' . $imageName
+                        'img' => 'images/film/' . $imageName
                         ]);
         
         return redirect('/movies');
     }
 
     public function edit($id_movie){
-        $movies = \App\Models\Movies::where('id', '=', $id_movie)->get();
-
-        //cherche dans la liste jusqu a ce qu il ai le meme ID
-        //search in the list of movies until it find the good one
-        foreach($movies as $data){
-            //quand la meme ID, retourne la page web des informations correspondant a cet ID
-            //if found -> return the page with the informations in the id
-            if ($data['id'] == $id_movie){
-                }
-                return view('movies.edit', ['movie' => $data]);
-        };
-    }
+        $movie = Movies::findOrFail($id_movie);
+        return view('movies.edit', ['movie' => $movie]);
+}
 
     public function update(Request $request, $id){
         
+        //find movie
+        $movie = Movies::findOrFail($id_movie);
+
+        //check for needed data
+        $request -> validate([
+            'title' => 'required|unique:Movies',
+            'content' => 'required|unique:Movies',
+            'img' => 'file|mimes:jpg,jpeg,png,webp'
+        ]);
+
+        //check if image has been inserted
+        if(img != $request['img']){
+            
+            //if inserted, delete old image
+            unlink($movie['img']);
+
+            // Create image name from title
+            $extension = $request->file('img')->getClientOriginalExtension();
+
+            //concat to make the new image name
+            $imageName = Str::slug($request->title) . '.' . $extension;
+            
+            // Upload to public/images/film/
+            $request->file('img')->move(
+                public_path('/images/film'),
+                $imageName
+            );
+
+            //update all the new parameters
+            Movies::update(['title' => $request->title,
+                        'content' => $request->content,
+                        'img' => '/images/film/' . $imageName
+                        ]);
+            
+            //return to the edited page
+            return redirect('/movies/' . $movie['id']);
+        }
+        else{
+
+            //if movie changed
+            if($movie['title'] != $request['title']){
+
+                $imageName = $request['title'] . '.' . file($movie['img'])->getClientOriginalExtension();
+                
+                //edit file name
+                rename($movie['img'], $imageName);
+                
+                //update accordingly
+                Movies::update(['title' => $request->title,
+                    'content' => $request->content,
+                    'img' => 'images/film/' . $imageName
+                ]);
+                
+                //return to the edited page
+                return redirect('/movies/' . $movie['id']);
+            }
+
+            else{
+                Movies::update(['title' => $request->title,
+                    'content' => $request->content
+                ]);
+
+                //return to the edited page
+                return redirect('/movies/' . $movie['id']);
+            }
+        }
+
+
+
     }
 }
 ?>

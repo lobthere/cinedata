@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <a href="/movies/$id/edit" class="text">Edit</a>
+    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
 
-    <a href="/movies" class="text">Retour</a>
+    <a href="/movies" class="button-special">Retour</a>
 @endsection
