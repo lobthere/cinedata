@@ -103,3 +103,54 @@
   transform: translateX(-3px);
   transition: transform 0.2s ease;
 }
+
+.container-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: center;
+}
+
+.container-actions .button-special {
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(226, 195, 145, 0.5);
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.container-actions .button-special:hover {
+    background-color: rgba(226, 195, 145, 0.2);
+    color: #E2C391;
+    border-color: #E2C391;
+}
+
+.container-actions form {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    max-width: none;
+    display: inline-block;
+    gap: 0;
+}
+
+.btn-supprimer {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-supprimer:hover {
+    background-color: #dc2626;
+}

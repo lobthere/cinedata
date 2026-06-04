@@ -23,4 +23,7 @@
         <input type="submit" name="submit" id="submit" value="Sauvegarder">
 
     </form>
+    <div style="text-align: center; margin-top: 20px;">
+    <a href="/movies/{{ $movie->id }}" class="text" style="color: #E2C391; text-decoration: none; font-family: sans-serif; font-weight: bold;">← Annuler et retour</a>
+</div>
 @endsection
