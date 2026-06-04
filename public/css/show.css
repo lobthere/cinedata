@@ -154,3 +154,54 @@
 .btn-supprimer:hover {
     background-color: #dc2626;
 }
+
+.createComments form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.createComments label {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.createComments input[type="text"] {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 14px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.createComments input[type="text"]:focus {
+    border-color: #E2C391;
+    box-shadow: 0 0 0 2px rgba(226, 195, 145, 0.2);
+}
+
+.createComments input[type="submit"] {
+    background-color: #E2C391;
+    color: #0f172a;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.createComments input[type="submit"]:hover {
+    background-color: #d1b280;
+}
+
+.createComments input[type="submit"]:active {
+    transform: scale(0.98);
+}
