@@ -23,16 +23,16 @@
             <h3>{{ $movie['title'] }}</h3>
             <p>{{ $movie['content'] }}</p>
         </div>
-   <div class="container-actions">
-        <a href="/movies" class="button-special">Retour</a>
+        <div class="container-actions">
+            <a href="/movies" class="button-special">Retour</a>
 
-        <form method="POST" action="/movies/{{ $movie->id }}" class="form-supprimer">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn-supprimer">Supprimer</button>
-        </form>
+            <form method="POST" action="/movies/{{ $movie->id }}" class="form-supprimer">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn-supprimer">Supprimer</button>
+            </form>
+        </div>
     </div>
-    </form>
     
     <div class="createComments">
         <form action="/movies/{{  $movie->id  }}/comment" method="post">
