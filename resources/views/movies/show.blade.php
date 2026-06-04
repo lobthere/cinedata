@@ -31,7 +31,19 @@
     </form>
     
     <div class="createComments">
-        <form action=""></form>
+        <form action="/movies/{{  $movie->id  }}/comment" method="post">
+            
+            @csrf
+
+            <label for="title">Username</label>
+            <input type="text" id="title" name="username" value="{{ old('username') }}">
+
+            <label for="content">Commentaire</label>
+            <input type="text" name="comment" value="{{ old('comment') }}">
+
+            <input type="submit" name="submit" id="submit" value="Envoyer">
+
+        </form>
     </div>
 
     <div class="comments">
