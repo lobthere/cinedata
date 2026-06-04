@@ -20,9 +20,9 @@
             <p>{{ $movie['content'] }}</p>
         </div>
     </div>
-    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
-
     <a href="/movies" class="button-special">Retour</a>
+    
+    <a href="/movies/{{ $movie->id }}/edit" class="button-special">Edit</a>
 
     <form method="POST" action="/movies/{{  $movie->id  }}">
         @csrf
