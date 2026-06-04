@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <a href="/movies/$id/edit" class="text"></a>
+    <a href="/movies/$id/edit" class="text">Edit</a>
 
     <a href="/movies" class="text">Retour</a>
 @endsection
