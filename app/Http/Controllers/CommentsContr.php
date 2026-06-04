@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CommentsContrl extends Controller
+class CommentsContr extends Controller
 {
     public function addComments(Request $request, $id){
 
