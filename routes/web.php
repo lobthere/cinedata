@@ -15,3 +15,4 @@ Route::get('/movies/{id}', [MovieController::class, 'show']);
 Route::delete('/movies/{id}', [MovieController::class, 'destroy']);
 Route::get('/movies/{id}/edit', [MovieController::class, 'edit']);
 Route::put('/movies/{id}', [MovieController::class, 'update']);
+Route::post('/movies/{id}/comment', [CommentsContr::class,'addComments']);
