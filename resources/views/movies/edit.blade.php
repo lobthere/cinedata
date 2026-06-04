@@ -2,7 +2,7 @@
 
 @section('head')
 <title>{{ $movie['title'] }}</title>
-<link rel="stylesheet" href="{{ asset('css/show.css') }}">
+<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
 @endsection
 
 @section('content')
