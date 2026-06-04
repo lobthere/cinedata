@@ -93,14 +93,14 @@ class MovieController extends Controller{
             
             // Upload to public/images/film/
             $request->file('img')->move(
-                public_path('/images/film'),
+                public_path('images/film'),
                 $imageName
             );
 
             //update all the new parameters
-            movie->update(['title' => $request->title,
+            $movie->update(['title' => $request->title,
                         'content' => $request->content,
-                        'img' => '/images/film/' . $imageName
+                        'img' => 'images/film/' . $imageName
                         ]);
             
             //return to the edited page
@@ -119,7 +119,7 @@ class MovieController extends Controller{
                 rename(public_path($movie['img']), public_path("/images/film/" . $imageName));
                 
                 //update accordingly
-                movie->update(['title' => $request->title,
+                $movie->update(['title' => $request->title,
                     'content' => $request->content,
                     'img' => 'images/film/' . $imageName
                 ]);
